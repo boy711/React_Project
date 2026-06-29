@@ -1,21 +1,21 @@
+import axios from "axios";
+
 const API_URL = "https://dummyjson.com/products";
 
 export async function getProducts() {
-  const response = await fetch(API_URL);
-
-  if (!response.ok) {
+  try {
+    const response = await axios.get(API_URL);
+    return response.data;
+  } catch (error) {
     throw new Error("Unable to load products. Please try again.");
   }
-
-  return response.json();
 }
 
 export async function getProductById(id) {
-  const response = await fetch(`${API_URL}/${id}`);
-
-  if (!response.ok) {
+  try {
+    const response = await axios.get(`${API_URL}/${id}`);
+    return response.data;
+  } catch (error) {
     throw new Error("Unable to load product details. Please try again.");
   }
-
-  return response.json();
 }

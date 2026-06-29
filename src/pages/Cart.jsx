@@ -46,7 +46,9 @@ function Cart() {
             <span>Total</span>
             <strong>${total.toFixed(2)}</strong>
           </div>
-          <button className="primary-button" type="button" onClick={() => alert("Still in development")} > Checkout </button>
+          <Link className="primary-button" to="/checkout">
+            Checkout
+          </Link>
         </aside>
       </div>
     </section>

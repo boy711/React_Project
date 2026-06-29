@@ -6,8 +6,6 @@ import { getProducts } from "../services/productApi";
 function Shop() {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [sortOrder, setSortOrder] = useState("default");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -28,31 +26,13 @@ function Shop() {
     loadProducts();
   }, []);
 
-  const categories = useMemo(() => {
-    return ["all", ...new Set(products.map((product) => product.category))];
-  }, [products]);
-
   const filteredProducts = useMemo(() => {
-    let result = products.filter((product) => {
-      const matchesSearch = product.title
+    return products.filter((product) => {
+      return product.title
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
-      const matchesCategory =
-        selectedCategory === "all" || product.category === selectedCategory;
-
-      return matchesSearch && matchesCategory;
     });
-
-    if (sortOrder === "low-high") {
-      result = [...result].sort((a, b) => a.price - b.price);
-    }
-
-    if (sortOrder === "high-low") {
-      result = [...result].sort((a, b) => b.price - a.price);
-    }
-
-    return result;
-  }, [products, searchTerm, selectedCategory, sortOrder]);
+  }, [products, searchTerm]);
 
   return (
     <section className="section page-section">
@@ -68,24 +48,6 @@ function Shop() {
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-        <select
-          value={selectedCategory}
-          onChange={(event) => setSelectedCategory(event.target.value)}
-        >
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category === "all" ? "All categories" : category}
-            </option>
-          ))}
-        </select>
-        <select
-          value={sortOrder}
-          onChange={(event) => setSortOrder(event.target.value)}
-        >
-          <option value="default">Sort by price</option>
-          <option value="low-high">Low to high</option>
-          <option value="high-low">High to low</option>
-        </select>
       </div>
 
       {loading && <Loading message="Fetching products..." />}

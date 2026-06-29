@@ -3,7 +3,6 @@ function Footer() {
     <footer className="footer">
       <div>
         <h3>StudentSpace Store</h3>
-        <p>Modern products for student lifestyle, study spaces, and daily comfort.</p>
       </div>
       <div className="footer-grid">
         <span>Fast Delivery</span>

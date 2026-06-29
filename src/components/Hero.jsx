@@ -4,20 +4,33 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <p className="eyebrow">Premium picks for campus life</p>
-        <h1>Upgrade your student space with smart everyday products.</h1>
+        
+        <h1>StudentSpace Store</h1>
         <p>
-          Discover clean, modern, and useful items selected for study rooms,
-          dorms, and student routines.
+          A cleaner way to browse everyday essentials for study desks, small
+          rooms, and the busy routines in between.
         </p>
-        <Link className="primary-button" to="/shop">
-          Shop Now
-        </Link>
+        <div className="hero-actions">
+          <Link className="primary-button" to="/shop">
+            Shop
+          </Link>
+          <Link className="secondary-button" to="/about">
+            Our story
+          </Link>
+          
+        </div>
       </div>
+
       <div className="hero-panel">
-        <span>New Collection</span>
-        <strong>Study. Live. Create.</strong>
-        <p>Curated products from DummyJSON with real API fetching.</p>
+        <div className="hero-photo"></div>
+        <div className="hero-card">
+          <span>New season setup</span>
+          <strong>Study. Rest. Repeat.</strong>
+          <p>Simple products styled for real student spaces.</p>
+        </div>
+        <div className="hero-stats">
+
+        </div>
       </div>
     </section>
   );

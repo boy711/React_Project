@@ -30,7 +30,6 @@ function Home() {
       <section className="section">
         <div className="section-heading">
           <p className="eyebrow">Featured products</p>
-          <h2>Popular picks for students</h2>
         </div>
 
         {loading ? (
@@ -44,18 +43,36 @@ function Home() {
         )}
       </section>
 
+      <section className="section editorial-section">
+        <div className="editorial-image" aria-hidden="true"></div>
+        <div className="section-heading">
+          <p className="eyebrow">Designed for daily use</p>
+          <h2>Less clutter, better choices, and a store that feels easy to scan.</h2>
+          <p>
+            The layout keeps product images clear, prices visible, and actions
+            direct so the shop feels closer to a polished storefront than a
+            class project template.
+          </p>
+          <div className="editorial-list">
+            <span>Filtered shopping for quick product discovery</span>
+            <span>Cart controls that stay readable on mobile</span>
+            <span>Calm colors with warmer accents for personality</span>
+          </div>
+        </div>
+      </section>
+
       <section className="section benefits-section">
         <div className="benefit-card">
-          <h3>Fast Delivery</h3>
-          <p>Get useful products quickly for class, study, and daily routines.</p>
+          <h3>Fast browsing</h3>
+          <p>Search, filter, and compare products without visual noise.</p>
         </div>
         <div className="benefit-card">
-          <h3>Student Friendly Price</h3>
-          <p>Modern essentials selected with simple budgets in mind.</p>
+          <h3>Budget aware</h3>
+          <p>Sort by price and find practical items that fit student spending.</p>
         </div>
         <div className="benefit-card">
-          <h3>Quality Products</h3>
-          <p>Browse well-presented products with real API data and details.</p>
+          <h3>Real product data</h3>
+          <p>Every listing, detail page, and image comes from the API flow.</p>
         </div>
       </section>
     </>
